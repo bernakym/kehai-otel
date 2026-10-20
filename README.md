@@ -1,6 +1,6 @@
 # KEHAİ 気配
 
-Arashiyama, Kyoto'da kurgulanmış on iki odalı bir **duyusal senkronizasyon
+Arashiyama, Kyoto'da kurgulanmış on yedi odalı bir **duyusal senkronizasyon
 oteli** için tanıtım sitesi.
 
 → **https://bernakym.github.io/kehai-otel/**
@@ -8,8 +8,10 @@ oteli** için tanıtım sitesi.
 KEHAİ, Berna Kayım'ın iç mimarlık bitirme projesi kapsamında geliştirilen otel
 konseptinin, otel hayata geçmiş gibi anlatıldığı bir web sitesidir. Site bilinçli
 olarak **hiç bina fotoğrafı içermiyor**: proje görüntüyle değil, duyularla
-anlatılıyor. Dokular (shoji ızgarası, kōshi çıtaları, tütsü isi, nawa lifi,
-karesansui kumu) tamamen CSS ve SVG ile üretildi.
+anlatılıyor. Dokular (shoji ızgarası, karesansui kumu, washi greni) tamamen
+CSS ve SVG ile üretildi.
+
+Oda dağılımı: 9 standart oda, 4 connection oda (2 bağlantılı çift), 4 süit.
 
 ## Palet
 
@@ -29,7 +31,8 @@ Her renk bir duyunun karşılığı:
 index.html            tek sayfalık site
 assets/css/style.css  palet, dokular, gündüz/gece teması
 assets/js/main.js     tema, menü, görünürlük animasyonu, rezervasyon formu
-assets/favicon.svg    logo
+assets/logo.png       sunumdaki logo (CSS maskesi olarak kullanılır)
+assets/favicon.png    favicon
 ```
 
 Yapı aracı yok, bağımlılık yok. Yerelde açmak için `index.html`'e çift tıklamak
@@ -40,6 +43,8 @@ yeterli.
 - **Gece modu** sağ üstteki düğmeyle değişir, tercih tarayıcıda saklanır.
 - **Rezervasyon formu** statik barındırmada sunucu olmadığı için talebi
   `mailto:` ile hazır bir e-postaya dönüştürür.
+- Logo, sunum dosyasından birebir alındı; alfa kanalı CSS maskesi olarak
+  kullanıldığı için gündüz/gece temasında rengi kendiliğinden değişir.
 - Tipografi: Cormorant Garamond, Jost, Shippori Mincho (Google Fonts).
 - `prefers-reduced-motion` ve yazdırma için ayrı davranış tanımlı.
 

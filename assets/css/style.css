@@ -139,7 +139,6 @@ a { color: inherit; text-decoration: none; }
   gap: .7rem;
   margin-right: auto;
 }
-.brand__mark { width: 26px; height: 26px; flex: none; }
 .brand__word {
   font-family: var(--serif);
   font-size: 1.22rem;
@@ -490,81 +489,31 @@ a { color: inherit; text-decoration: none; }
   text-align: center;
 }
 
-/* ---------------- duyular ---------------- */
+/* ---------------- logo ---------------- */
 
-.senses {
-  display: grid;
-  gap: 1px;
-  grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
-  background: var(--rule-soft);
-  border: 1px solid var(--rule-soft);
+.mark {
+  display: block;
+  background-color: currentColor;
+  -webkit-mask: url("../logo.png") no-repeat center / contain;
+          mask: url("../logo.png") no-repeat center / contain;
+  flex: none;
 }
-.sense {
-  background: var(--bg);
-  padding: 0 0 1.9rem;
-  display: flex;
-  flex-direction: column;
-}
-.sense > :not(.sense__swatch) { padding-inline: 1.6rem; }
-.sense header { margin: 1.6rem 0 1rem; }
-.sense__hex {
-  margin: 0 0 .9rem;
-  font-size: .68rem;
-  letter-spacing: .22em;
-  color: var(--ink-faint);
-}
-.sense h3 { font-size: 1.6rem; margin-bottom: .35rem; }
-.sense__tag {
-  margin: 0;
-  font-size: .76rem;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-.sense > p:last-child { font-size: .91rem; color: var(--ink-soft); line-height: 1.68; }
-
-.sense__swatch {
-  height: 148px;
-  background-color: var(--accent);
-  position: relative;
-  overflow: hidden;
+/* maske desteklenmezse logoyu düz görsel olarak göster */
+@supports not ((-webkit-mask-image: url("../logo.png")) or (mask-image: url("../logo.png"))) {
+  .mark {
+    background: url("../logo.png") no-repeat center / contain;
+  }
+  :root[data-theme="dark"] .mark,
+  .footer .mark { filter: invert(1); }
 }
 
-/* görme — shoji ızgarası ve süzülen ışık */
-.sw-sight {
-  background-image:
-    radial-gradient(70% 90% at 30% 10%, rgba(255,255,255,.95), transparent 70%),
-    repeating-linear-gradient(to right, rgba(27,36,48,.22) 0 1px, transparent 1px 26px),
-    repeating-linear-gradient(to bottom, rgba(27,36,48,.22) 0 1px, transparent 1px 26px);
-}
-/* işitme — kōshi çıtaları, değişken ritim */
-.sw-sound {
-  background-image: repeating-linear-gradient(
-    to right,
-    rgba(243,239,230,.30) 0 2px,
-    transparent 2px 9px,
-    rgba(243,239,230,.16) 9px 10px,
-    transparent 10px 19px);
-}
-/* koku — tütsü isi */
-.sw-smell {
-  background-image:
-    radial-gradient(42% 120% at 28% 115%, rgba(243,239,230,.42), transparent 68%),
-    radial-gradient(34% 110% at 62% 125%, rgba(243,239,230,.3), transparent 66%),
-    radial-gradient(26% 95% at 84% 120%, rgba(243,239,230,.2), transparent 64%);
-}
-/* dokunma — nawa halat / lifli doku */
-.sw-touch {
-  background-image:
-    repeating-linear-gradient(48deg, rgba(27,36,48,.16) 0 2px, transparent 2px 8px),
-    repeating-linear-gradient(-48deg, rgba(27,36,48,.10) 0 2px, transparent 2px 8px);
-}
-/* tatma — çay kâsesinin halkaları */
-.sw-taste {
-  background-image:
-    radial-gradient(circle at 50% 52%, transparent 0 16%, rgba(243,239,230,.26) 16% 17%, transparent 17%),
-    radial-gradient(circle at 50% 52%, transparent 0 28%, rgba(243,239,230,.2) 28% 29%, transparent 29%),
-    radial-gradient(circle at 50% 52%, transparent 0 40%, rgba(243,239,230,.14) 40% 41%, transparent 41%);
+.mark--sm     { width: 52px; height: 28px; }
+.mark--footer { width: 64px; height: 35px; opacity: .85; }
+.mark--hero {
+  width: clamp(150px, 24vw, 260px);
+  height: clamp(82px, 13vw, 142px);
+  margin: 0 0 1.6rem -2%;
+  opacity: .9;
 }
 
 /* ---------------- sözlük ---------------- */
@@ -605,6 +554,38 @@ a { color: inherit; text-decoration: none; }
 
 /* ---------------- odalar ---------------- */
 
+.tally {
+  list-style: none;
+  margin: 0 0 clamp(2.2rem, 5vw, 3.4rem);
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.tally li {
+  flex: 1 1 170px;
+  display: flex;
+  align-items: baseline;
+  gap: .8rem;
+  padding: 1.15rem 1.4rem 1.15rem 0;
+  font-size: .82rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.tally li + li { border-left: 1px solid var(--rule-soft); padding-left: 1.4rem; }
+.tally__n {
+  font-family: var(--serif);
+  font-size: 1.85rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--accent);
+}
+.tally--sum { color: var(--ink); }
+.tally--sum .tally__n { color: var(--ink); }
+
 .rooms {
   display: grid;
   gap: clamp(1.4rem, 3vw, 2.2rem);
@@ -629,7 +610,6 @@ a { color: inherit; text-decoration: none; }
   opacity: .55;
 }
 .room:hover { border-color: var(--ink); transform: translateY(-3px); }
-.room--wide { grid-column: span 2; }
 .room__idx {
   margin: 0 0 1.4rem;
   font-size: .72rem;
@@ -863,7 +843,6 @@ input.invalid, textarea.invalid { border-bottom-color: #B4553F; }
   padding-bottom: 2.6rem;
   border-bottom: 1px solid color-mix(in srgb, var(--on-deep) 14%, transparent);
 }
-.footer__mark { width: 30px; height: 30px; opacity: .8; }
 .footer__word {
   font-family: var(--serif);
   font-size: 1.3rem;
@@ -896,7 +875,7 @@ input.invalid, textarea.invalid { border-bottom-color: #B4553F; }
 
 /* ---------------- görünürlük animasyonu ---------------- */
 
-.reveal, .section__head, .steps li, .sense, .glossary > div,
+.reveal, .section__head, .steps li, .tally li, .glossary > div,
 .room, .floor, .timeline li, .place__text, .place__map, .form, .contact {
   opacity: 0;
   transform: translateY(16px);
@@ -909,7 +888,6 @@ input.invalid, textarea.invalid { border-bottom-color: #B4553F; }
 @media (max-width: 1000px) {
   .prose-2, .place, .book { grid-template-columns: 1fr; }
   .contact { border-left: 0; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 1.8rem; }
-  .room--wide { grid-column: span 1; }
   .floor { grid-template-columns: 6.5rem 1fr; }
   .floor p:last-child { grid-column: 2; }
 }
@@ -946,7 +924,7 @@ input.invalid, textarea.invalid { border-bottom-color: #B4553F; }
     animation-iteration-count: 1 !important;
     transition-duration: .001ms !important;
   }
-  .reveal, .section__head, .steps li, .sense, .glossary > div,
+  .reveal, .section__head, .steps li, .tally li, .glossary > div,
   .room, .floor, .timeline li, .place__text, .place__map, .form, .contact {
     opacity: 1;
     transform: none;
