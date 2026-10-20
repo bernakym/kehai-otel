@@ -11,7 +11,8 @@ olarak **hiç bina fotoğrafı içermiyor**: proje görüntüyle değil, duyular
 anlatılıyor. Dokular (shoji ızgarası, karesansui kumu, washi greni) tamamen
 CSS ve SVG ile üretildi.
 
-Oda dağılımı: 9 standart oda, 4 connection oda (2 bağlantılı çift), 4 süit.
+Oda dağılımı: 9 standart oda (27–30 m²), 4 connection oda (40 m², 2 bağlantılı
+çift), 4 süit (50 m²).
 
 ## Palet
 

@@ -589,10 +589,13 @@ a { color: inherit; text-decoration: none; }
 .rooms {
   display: grid;
   gap: clamp(1.4rem, 3vw, 2.2rem);
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 .room {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 18rem;
   padding: 2rem 1.8rem 2.1rem;
   border: 1px solid var(--rule);
   background: var(--bg);
@@ -611,39 +614,30 @@ a { color: inherit; text-decoration: none; }
 }
 .room:hover { border-color: var(--ink); transform: translateY(-3px); }
 .room__idx {
-  margin: 0 0 1.4rem;
+  margin: 0 0 auto;
   font-size: .72rem;
   letter-spacing: .24em;
   color: var(--ink-faint);
 }
-.room h3 { font-size: clamp(1.6rem, 1.4rem + .6vw, 2.1rem); margin-bottom: .6rem; }
+.room h3 {
+  font-size: clamp(1.7rem, 1.4rem + .8vw, 2.2rem);
+  margin: 2.5rem 0 1.4rem;
+}
 .room__spec {
+  margin: 0 0 .9rem;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 1.6rem + 1.4vw, 2.9rem);
+  line-height: 1;
+  color: var(--accent);
+}
+.room__face {
+  margin: 0;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--rule-soft);
   font-size: .76rem;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 1.2rem;
-}
-.room > p:not(.room__idx):not(.room__spec) {
-  font-size: .93rem;
   color: var(--ink-soft);
-  line-height: 1.68;
-}
-.room__list {
-  list-style: none;
-  margin: 1.5rem 0 0;
-  padding: 1.3rem 0 0;
-  border-top: 1px solid var(--rule-soft);
-  font-size: .85rem;
-  color: var(--ink-soft);
-}
-.room__list li { padding-left: 1.1rem; position: relative; margin-bottom: .45rem; }
-.room__list li::before {
-  content: "";
-  position: absolute;
-  left: 0; top: .72em;
-  width: 5px; height: 1px;
-  background: var(--accent);
 }
 
 /* ---------------- katlar ---------------- */
